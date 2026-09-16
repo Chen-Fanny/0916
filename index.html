@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal dashboard featuring real-time clock, personalized greeting, and daily focus widgets.">
+  <title>Fanny's Personal Space | Live Dashboard</title>
+  <!-- Google Fonts: Outfit & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="theme-cosmic">
+  <!-- Dynamic Ambient Background Glows -->
+  <div class="ambient-glow glow-1" aria-hidden="true"></div>
+  <div class="ambient-glow glow-2" aria-hidden="true"></div>
+  <div class="ambient-glow glow-3" aria-hidden="true"></div>
+
+  <div class="app-container">
+    <!-- Top Navigation / Controls Bar -->
+    <header class="top-nav" id="top-nav">
+      <div class="brand-badge">
+        <span class="pulse-dot"></span>
+        <span class="badge-text" id="status-badge">Personal Dashboard</span>
+      </div>
+
+      <div class="controls-group">
+        <!-- 12h / 24h Toggle -->
+        <button class="control-btn" id="format-toggle" title="Toggle 12h / 24h format" aria-label="Toggle time format">
+          <span class="icon">⏱️</span>
+          <span id="format-label">24H</span>
+        </button>
+
+        <!-- Theme Switcher -->
+        <button class="control-btn" id="theme-toggle" title="Cycle visual theme" aria-label="Cycle visual theme">
+          <span class="icon">✨</span>
+          <span id="theme-label">Theme</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="dashboard-main" id="dashboard-main">
+      <!-- Greeting & Name Section -->
+      <section class="greeting-section" aria-labelledby="greeting-heading">
+        <div class="greeting-eyebrow" id="greeting-eyebrow">
+          <span id="day-moment-icon">☀️</span>
+          <span id="greeting-text">Good day</span>
+        </div>
+        
+        <h1 class="user-name-wrapper" id="greeting-heading">
+          <span class="name-display" id="name-display" title="Click to edit name">Fanny</span>
+          <button class="edit-name-btn" id="edit-name-btn" aria-label="Change your name" title="Edit your name">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+            </svg>
+          </button>
+        </h1>
+
+        <p class="tagline" id="tagline-display" title="Click to edit tagline">
+          <span id="tagline-text">Designing the future, one moment at a time.</span>
+          <button class="edit-tagline-btn" id="edit-tagline-btn" aria-label="Change tagline">✏️</button>
+        </p>
+      </section>
+
+      <!-- Central Hero Clock Card -->
+      <section class="clock-card glass-panel" id="clock-card" aria-label="Current Live Time">
+        <div class="clock-card-header">
+          <div class="live-indicator">
+            <span class="blinking-indicator"></span>
+            <span>LIVE TIME</span>
+          </div>
+          <div class="timezone-tag" id="timezone-tag">UTC+00:00</div>
+        </div>
+
+        <div class="time-readout" id="time-readout">
+          <div class="time-digits" id="time-digits">
+            <span id="hours">00</span>
+            <span class="time-colon">:</span>
+            <span id="minutes">00</span>
+          </div>
+          <div class="time-secondary">
+            <span class="seconds-unit" id="seconds">00</span>
+            <span class="ampm-unit" id="ampm">AM</span>
+          </div>
+        </div>
+
+        <!-- Seconds Progress Track -->
+        <div class="seconds-track-container" aria-hidden="true">
+          <div class="seconds-track-fill" id="seconds-track-fill"></div>
+        </div>
+
+        <div class="clock-card-footer">
+          <div class="date-display" id="date-display">
+            <span class="calendar-icon">📅</span>
+            <span id="formatted-date">Loading date...</span>
+          </div>
+          <div class="week-number" id="week-number">
+            Week 01
+          </div>
+        </div>
+      </section>
+
+      <!-- Bottom Info & Productivity Widgets -->
+      <section class="widgets-grid" aria-label="Productivity and inspiration widgets">
+        <!-- Daily Motivation Widget -->
+        <article class="widget-card glass-panel" id="widget-quote">
+          <div class="widget-icon">💡</div>
+          <div class="widget-content">
+            <h2 class="widget-title">Daily Inspiration</h2>
+            <p class="quote-text" id="quote-text">"The secret of getting ahead is getting started."</p>
+            <span class="quote-author" id="quote-author">— Mark Twain</span>
+          </div>
+          <button class="refresh-quote-btn" id="refresh-quote-btn" title="Get new inspiration" aria-label="Refresh quote">↻</button>
+        </article>
+
+        <!-- Quick Access Shortcuts Widget -->
+        <article class="widget-card glass-panel" id="widget-links">
+          <div class="widget-icon">🚀</div>
+          <div class="widget-content w-full">
+            <h2 class="widget-title">Quick Spaces</h2>
+            <div class="shortcuts-container" id="shortcuts-container">
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="shortcut-pill" id="shortcut-github">
+                <span>GitHub</span>
+              </a>
+              <a href="https://google.com" target="_blank" rel="noopener noreferrer" class="shortcut-pill" id="shortcut-search">
+                <span>Search</span>
+              </a>
+              <a href="https://mail.google.com" target="_blank" rel="noopener noreferrer" class="shortcut-pill" id="shortcut-mail">
+                <span>Mail</span>
+              </a>
+              <button class="shortcut-pill add-custom-link" id="add-link-btn" title="Add a custom bookmark">
+                <span>+ Add</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Day Progress Tracker -->
+        <article class="widget-card glass-panel" id="widget-progress">
+          <div class="widget-icon">⏳</div>
+          <div class="widget-content w-full">
+            <div class="progress-title-row">
+              <h2 class="widget-title">Day Progress</h2>
+              <span class="progress-percent-label" id="day-progress-label">0%</span>
+            </div>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" id="day-progress-bar"></div>
+            </div>
+            <span class="progress-detail-text" id="day-progress-detail">Calculating remaining hours...</span>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" id="site-footer">
+      <p>Crafted for focus and elegance • Updates every second</p>
+    </footer>
+  </div>
+
+  <!-- Modal for Name / Tagline Edit -->
+  <dialog class="custom-modal" id="edit-modal">
+    <div class="modal-card glass-panel">
+      <h3 class="modal-title" id="modal-title">Customize Profile</h3>
+      <form id="profile-form" method="dialog">
+        <div class="form-group">
+          <label for="name-input">Your Name</label>
+          <input type="text" id="name-input" maxlength="32" placeholder="e.g., Fanny" required autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="tagline-input">Personal Tagline or Focus</label>
+          <input type="text" id="tagline-input" maxlength="80" placeholder="e.g., Building meaningful creations" autocomplete="off">
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary" id="modal-cancel-btn">Cancel</button>
+          <button type="submit" class="btn-primary" id="modal-save-btn">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
