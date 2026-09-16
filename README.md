@@ -5,7 +5,21 @@ A modern, glassmorphic personal dashboard and portfolio created for the DIC-1 as
 🌐 **Live Website**: [https://Chen-Fanny.github.io/0916/](https://Chen-Fanny.github.io/0916/)  
 📁 **GitHub Repository**: [https://github.com/Chen-Fanny/0916](https://github.com/Chen-Fanny/0916)
 <img width="1358" height="890" alt="image" src="https://github.com/user-attachments/assets/66637205-8b37-489a-93e7-75d58f4175f9" />
+## 🔄 Project Workflow
 
+This project follows a complete AI-assisted web development workflow:
+
+Idea → AI Build → Test → Git → GitHub → GitHub Pages → Live Website
+
+```mermaid
+flowchart LR
+    A[💡 Idea] --> B[🤖 Antigravity AI]
+    B --> C[💻 HTML / CSS / JavaScript]
+    C --> D[🧪 Test]
+    D --> E[📦 Git]
+    E --> F[🐙 GitHub]
+    F --> G[🌐 GitHub Pages]
+    G --> H[🚀 Live Website]
 ---
 
 ## 🎯 作業目標與功能對應
