@@ -9,18 +9,22 @@ A modern, glassmorphic personal dashboard and portfolio created for the DIC-1 as
 
 This project follows a complete AI-assisted web development workflow:
 
-Idea → AI Build → Test → Git → GitHub → GitHub Pages → Live Website
+**Idea → AI Build → Test → Git → GitHub → GitHub Pages → Live Website**
 
 ```mermaid
 flowchart LR
-    A[💡 Idea] --> B[🤖 Antigravity AI]
-    B --> C[💻 HTML / CSS / JavaScript]
-    C --> D[🧪 Test]
-    D --> E[📦 Git]
-    E --> F[🐙 GitHub]
-    F --> G[🌐 GitHub Pages]
-    G --> H[🚀 Live Website]
+    A[Idea] --> B[Antigravity AI]
+    B --> C[HTML CSS JavaScript]
+    C --> D[Test]
+    D --> E[Git]
+    E --> F[GitHub]
+    F --> G[GitHub Pages]
+    G --> H[Live Website]
+```
+
 ---
+
+
 
 ## 🎯 作業目標與功能對應
 
