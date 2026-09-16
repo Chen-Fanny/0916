@@ -12,7 +12,8 @@
   // --- State & Defaults ---
   const STATE = {
     name: initialName,
-    tagline: localStorage.getItem('personal_tagline') || 'Designing the future, one moment at a time.',
+    major: localStorage.getItem('personal_major') || '資訊工程 / 網頁與人工智慧開發',
+    bio: localStorage.getItem('personal_bio') || '熱愛探索新技術與打造流暢現代化的數位體驗。專注於前端架構、互動式設計與 AI 應用整合。',
     format24: localStorage.getItem('personal_time_format') !== '12h', // Default 24h
     currentThemeIndex: parseInt(localStorage.getItem('personal_theme_idx') || '0', 10),
     themes: ['theme-cosmic', 'theme-aurora', 'theme-sunset'],
@@ -42,10 +43,13 @@
 
   const elGreetingText = document.getElementById('greeting-text');
   const elGreetingIcon = document.getElementById('day-moment-icon');
+  const elProfileAvatar = document.getElementById('profile-avatar');
   const elNameDisplay = document.getElementById('name-display');
-  const elTaglineText = document.getElementById('tagline-text');
+  const elMajorText = document.getElementById('major-text');
+  const elMajorDisplay = document.getElementById('major-display');
+  const elBioText = document.getElementById('bio-text');
+  const elBioDisplay = document.getElementById('bio-display');
   const elEditNameBtn = document.getElementById('edit-name-btn');
-  const elEditTaglineBtn = document.getElementById('edit-tagline-btn');
 
   const elFormatToggle = document.getElementById('format-toggle');
   const elFormatLabel = document.getElementById('format-label');
@@ -66,7 +70,8 @@
   const elEditModal = document.getElementById('edit-modal');
   const elProfileForm = document.getElementById('profile-form');
   const elNameInput = document.getElementById('name-input');
-  const elTaglineInput = document.getElementById('tagline-input');
+  const elMajorInput = document.getElementById('major-input');
+  const elBioInput = document.getElementById('bio-input');
   const elModalCancelBtn = document.getElementById('modal-cancel-btn');
 
   // --- Helper Functions ---
@@ -183,28 +188,36 @@
   // --- Profile & Personalization ---
   function renderProfile() {
     elNameDisplay.textContent = STATE.name;
-    elTaglineText.textContent = STATE.tagline;
-    document.title = `${STATE.name}'s Personal Space | Live Dashboard`;
+    if (elMajorText) elMajorText.textContent = STATE.major;
+    if (elBioText) elBioText.textContent = STATE.bio;
+    if (elProfileAvatar) {
+      const letter = STATE.name.trim().charAt(0).toUpperCase() || 'F';
+      elProfileAvatar.innerHTML = `<span class="avatar-letter">${letter}</span>`;
+    }
+    document.title = `${STATE.name}'s Personal Space | DIC-1 Dashboard`;
   }
 
   function openEditModal() {
     elNameInput.value = STATE.name;
-    elTaglineInput.value = STATE.tagline;
+    if (elMajorInput) elMajorInput.value = STATE.major;
+    if (elBioInput) elBioInput.value = STATE.bio;
     if (typeof elEditModal.showModal === 'function') {
       elEditModal.showModal();
     } else {
       const newName = prompt('Enter your name:', STATE.name);
       if (newName && newName.trim()) {
-        saveProfile(newName.trim(), STATE.tagline);
+        saveProfile(newName.trim(), STATE.major, STATE.bio);
       }
     }
   }
 
-  function saveProfile(name, tagline) {
+  function saveProfile(name, major, bio) {
     STATE.name = name || 'Fanny';
-    STATE.tagline = tagline || 'Designing the future, one moment at a time.';
+    STATE.major = major || '資訊工程 / 網頁與人工智慧開發';
+    STATE.bio = bio || '熱愛探索新技術與打造流暢現代化的數位體驗。專注於前端架構、互動式設計與 AI 應用整合。';
     localStorage.setItem('personal_user_name', STATE.name);
-    localStorage.setItem('personal_tagline', STATE.tagline);
+    localStorage.setItem('personal_major', STATE.major);
+    localStorage.setItem('personal_bio', STATE.bio);
     renderProfile();
   }
 
@@ -279,8 +292,9 @@
     // Open profile modal
     elEditNameBtn.addEventListener('click', openEditModal);
     elNameDisplay.addEventListener('click', openEditModal);
-    elEditTaglineBtn.addEventListener('click', openEditModal);
-    elTaglineText.addEventListener('click', openEditModal);
+    if (elMajorDisplay) elMajorDisplay.addEventListener('click', openEditModal);
+    if (elBioDisplay) elBioDisplay.addEventListener('click', openEditModal);
+    if (elProfileAvatar) elProfileAvatar.addEventListener('click', openEditModal);
 
     // Modal controls
     elModalCancelBtn.addEventListener('click', () => {
@@ -290,9 +304,10 @@
     elProfileForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const enteredName = elNameInput.value.trim();
-      const enteredTagline = elTaglineInput.value.trim();
+      const enteredMajor = elMajorInput ? elMajorInput.value.trim() : '';
+      const enteredBio = elBioInput ? elBioInput.value.trim() : '';
       if (enteredName) {
-        saveProfile(enteredName, enteredTagline);
+        saveProfile(enteredName, enteredMajor, enteredBio);
       }
       elEditModal.close();
     });

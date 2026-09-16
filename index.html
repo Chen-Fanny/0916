@@ -42,16 +42,24 @@
 
     <!-- Main Content Grid -->
     <main class="dashboard-main" id="dashboard-main">
-      <!-- Greeting & Name Section -->
+      <!-- Greeting & Profile Section -->
       <section class="greeting-section" aria-labelledby="greeting-heading">
+        <!-- Profile Avatar with live indicator -->
+        <div class="profile-avatar-wrapper" title="Fanny's Profile">
+          <div class="profile-avatar" id="profile-avatar">
+            <span class="avatar-letter">F</span>
+          </div>
+          <span class="status-indicator-badge" title="Active & Coding"></span>
+        </div>
+
         <div class="greeting-eyebrow" id="greeting-eyebrow">
           <span id="day-moment-icon">☀️</span>
           <span id="greeting-text">Good day</span>
         </div>
         
         <h1 class="user-name-wrapper" id="greeting-heading">
-          <span class="name-display" id="name-display" title="Click to edit name">Fanny</span>
-          <button class="edit-name-btn" id="edit-name-btn" aria-label="Change your name" title="Edit your name">
+          <span class="name-display" id="name-display" title="Click to edit profile">Fanny</span>
+          <button class="edit-name-btn" id="edit-name-btn" aria-label="Change your profile" title="Edit your profile">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
               <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
@@ -59,9 +67,15 @@
           </button>
         </h1>
 
-        <p class="tagline" id="tagline-display" title="Click to edit tagline">
-          <span id="tagline-text">Designing the future, one moment at a time.</span>
-          <button class="edit-tagline-btn" id="edit-tagline-btn" aria-label="Change tagline">✏️</button>
+        <!-- Major & Focus Badge -->
+        <div class="user-meta-badge" id="major-display" title="Click to edit">
+          <span class="meta-icon">🎓</span>
+          <span id="major-text">資訊工程 / 網頁與人工智慧開發</span>
+        </div>
+
+        <!-- Short Bio -->
+        <p class="user-bio" id="bio-display" title="Click to edit">
+          <span id="bio-text">熱愛探索新技術與打造流暢現代化的數位體驗。專注於前端架構、互動式設計與 AI 應用整合。</span>
         </p>
       </section>
 
@@ -100,6 +114,143 @@
           <div class="week-number" id="week-number">
             Week 01
           </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section class="section-container" id="skills-section" aria-label="Skills & Capabilities">
+        <div class="section-header">
+          <div class="section-badge">Capabilities</div>
+          <h2 class="section-title">🛠 專業技能 Skills</h2>
+          <p class="section-subtitle">探索技術堆疊與核心能力</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-card glass-panel">
+            <div class="skill-header">
+              <span class="skill-icon">🐍</span>
+              <div class="skill-meta">
+                <span class="skill-name">Python</span>
+                <span class="skill-level">核心語言 / 資料分析</span>
+              </div>
+            </div>
+            <p class="skill-desc">基礎語法、資料結構、數據處理與機器學習模型串接應用。</p>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" style="width: 88%;"></div>
+            </div>
+          </div>
+
+          <div class="skill-card glass-panel">
+            <div class="skill-header">
+              <span class="skill-icon">🌐</span>
+              <div class="skill-meta">
+                <span class="skill-name">Web Development</span>
+                <span class="skill-level">現代前端與介面設計</span>
+              </div>
+            </div>
+            <p class="skill-desc">HTML5 語意化架構、CSS3 毛玻璃深色主題系統、Vanilla JavaScript 與 DOM 動態控制。</p>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" style="width: 85%;"></div>
+            </div>
+          </div>
+
+          <div class="skill-card glass-panel">
+            <div class="skill-header">
+              <span class="skill-icon">🤖</span>
+              <div class="skill-meta">
+                <span class="skill-name">AI & Machine Learning</span>
+                <span class="skill-level">提示工程與應用</span>
+              </div>
+            </div>
+            <p class="skill-desc">運用大型語言模型輔助開發、Prompt Engineering 與智慧代理人協同設計。</p>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" style="width: 80%;"></div>
+            </div>
+          </div>
+
+          <div class="skill-card glass-panel">
+            <div class="skill-header">
+              <span class="skill-icon">⚡</span>
+              <div class="skill-meta">
+                <span class="skill-name">Git & GitHub Workflow</span>
+                <span class="skill-level">版本控制與自動化部署</span>
+              </div>
+            </div>
+            <p class="skill-desc">Git 分支管理、遠端同步操作與 GitHub Pages 雲端發布流程。</p>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" style="width: 86%;"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section class="section-container" id="projects-section" aria-label="Projects & Showcases">
+        <div class="section-header">
+          <div class="section-badge">Showcase</div>
+          <h2 class="section-title">🚀 精選作品 Projects</h2>
+          <p class="section-subtitle">實作成果與這學期預計完成之專案</p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1 (Active Assignment Project) -->
+          <article class="project-card glass-panel">
+            <div class="project-badge-pill">Featured Project</div>
+            <div class="project-content">
+              <div class="project-top-row">
+                <span class="project-icon">⏱️</span>
+                <div>
+                  <h3 class="project-title">Fanny's Personal Live Dashboard</h3>
+                  <span class="project-sub">DIC-1 雲端個人即時儀表板</span>
+                </div>
+              </div>
+              <p class="project-desc">
+                結合 Antigravity + GitHub + GitHub Pages 建置的個人首頁。具備高精度毫秒即時時鐘、時區自動偵測、動態時間問候、三套自適應毛玻璃主題切換，並完整支援 localStorage 個人資料自訂。
+              </p>
+              <div class="project-tags">
+                <span class="tag">HTML5</span>
+                <span class="tag">Vanilla CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">GitHub Pages</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Chen-Fanny/0916" target="_blank" rel="noopener noreferrer" class="project-btn primary-btn">
+                  <span>GitHub Repository</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>
+                <a href="https://Chen-Fanny.github.io/0916/" target="_blank" rel="noopener noreferrer" class="project-btn secondary-btn">
+                  <span>Live Website</span>
+                  <span class="live-dot"></span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2 (Semester Planned Project) -->
+          <article class="project-card glass-panel">
+            <div class="project-badge-pill planned-badge">Planned Project</div>
+            <div class="project-content">
+              <div class="project-top-row">
+                <span class="project-icon">💡</span>
+                <div>
+                  <h3 class="project-title">AI 智能學習助手與專注空間</h3>
+                  <span class="project-sub">學期預計完成專案</span>
+                </div>
+              </div>
+              <p class="project-desc">
+                本學期規劃進行的 AI 整合專案，結合大型語言模型 API 提供自主學習進度追蹤、智慧筆記重點摘要與專注蕃茄鐘計時輔助功能。
+              </p>
+              <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">LLM API</span>
+                <span class="tag">Prompt Design</span>
+                <span class="tag">Data Analysis</span>
+              </div>
+              <div class="project-links">
+                <span class="project-status-note">🚧 規劃與架構設計中</span>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -167,12 +318,16 @@
       <h3 class="modal-title" id="modal-title">Customize Profile</h3>
       <form id="profile-form" method="dialog">
         <div class="form-group">
-          <label for="name-input">Your Name</label>
+          <label for="name-input">Your Name (姓名)</label>
           <input type="text" id="name-input" maxlength="32" placeholder="e.g., Fanny" required autocomplete="off">
         </div>
         <div class="form-group">
-          <label for="tagline-input">Personal Tagline or Focus</label>
-          <input type="text" id="tagline-input" maxlength="80" placeholder="e.g., Building meaningful creations" autocomplete="off">
+          <label for="major-input">Major / Department (科系與專長)</label>
+          <input type="text" id="major-input" maxlength="64" placeholder="e.g., 資訊工程 / 網頁與人工智慧開發" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="bio-input">Short Bio (簡短自我介紹)</label>
+          <textarea id="bio-input" maxlength="200" rows="3" placeholder="e.g., 熱愛探索新技術與打造流暢現代化的數位體驗..."></textarea>
         </div>
         <div class="modal-actions">
           <button type="button" class="btn-secondary" id="modal-cancel-btn">Cancel</button>
