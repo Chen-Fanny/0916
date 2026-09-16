@@ -1,9 +1,10 @@
-# DIC-1 — Fanny's Personal Page
+# DIC-1 — 陳奕帆's Personal Page
 
 A modern, glassmorphic personal dashboard and portfolio created for the DIC-1 assignment. Built using HTML5, Vanilla CSS, and JavaScript, and deployed with GitHub Pages.
 
 🌐 **Live Website**: [https://Chen-Fanny.github.io/0916/](https://Chen-Fanny.github.io/0916/)  
 📁 **GitHub Repository**: [https://github.com/Chen-Fanny/0916](https://github.com/Chen-Fanny/0916)
+<img width="1358" height="890" alt="image" src="https://github.com/user-attachments/assets/66637205-8b37-489a-93e7-75d58f4175f9" />
 
 ---
 
