@@ -3,8 +3,7 @@
 **Assignment**: DIC 1 (Do In Class 1) — Personal Page & Live Time System  
 **Author**: Fanny (陳奕帆)  
 **Course**: Artificial Intelligence of Things (AIoT 2026)  
-**Repository**: https://github.com/Chen-Fanny/0916  
-**Live Website**: https://Chen-Fanny.github.io/0916/
+
 
 🌐 **Live Website**: [https://Chen-Fanny.github.io/0916/](https://Chen-Fanny.github.io/0916/)  
 📁 **GitHub Repository**: [https://github.com/Chen-Fanny/0916](https://github.com/Chen-Fanny/0916)
